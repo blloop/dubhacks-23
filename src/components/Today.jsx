@@ -1,6 +1,13 @@
-import Navbar from "./Navbar";
+import DailyTasks from './DailyTasks';
 
-const Today = props => {
+const num_tasks
+
+const today = () => {
+    let list = [];
+    for (let i = 0; i < num_tasks. i++) {
+        const 
+    }
+
     return (
         <>
             <div>
@@ -14,4 +21,9 @@ const Today = props => {
     )
 }
 
-export default Today;
+/**
+ * for all tasks in dailylist
+ *   create component 
+ */
+
+export default today;
