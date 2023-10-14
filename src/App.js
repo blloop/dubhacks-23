@@ -25,7 +25,8 @@ const App = () => {
         <Today
           pageIndex={pageIndex}
           setIndex={setIndex}
-          addTask={addTask}  
+          addTask={addTask}
+          taskList={taskList}
         />
       );
     case 1: 
