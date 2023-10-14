@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 const Today = props => {
     return (
         <>
-            <div>
+            <div className='page-today'>
                 <h1> Today </h1>
             </div>
             <Navbar

@@ -1,19 +1,22 @@
 * {
   font-family: Inter;
+  box-sizing: border-box;
 }
 
 :root {
     --off-black: #292929;
+    --round-border: 24px;
+    --page-spacing: 12px;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 18px;
+    position: fixed;
+    left: var(--page-spacing);
+    right: var(--page-spacing);
+    bottom: var(--page-spacing);
+    border-radius: var(--round-border);
     background-color: var(--off-black);
     border: 2px solid var(--off-black);
 }
@@ -23,11 +26,17 @@
     padding: 12px;
     font-size: 24px;
     font-weight: bold;
-    border-radius: 18px;
+    border-radius: var(--round-border);
     border: none;
 }
 
 .navbar button:not(.selected) {
     color: white;
     background-color: transparent;
+}
+
+.page-today, .page-all, .page-feed {
+    width: 100%;
+    margin: var(--page-spacing);
+    background-color: lightgray;
 }
