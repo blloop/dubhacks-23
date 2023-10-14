@@ -1,18 +1,28 @@
 import DailyTasks from './DailyTasks';
+import Navbar from './Navbar';
 
-const num_tasks
+const num_tasks = 20;
 
-const today = () => {
+const Today = props => {
     let list = [];
-    for (let i = 0; i < num_tasks. i++) {
-        const 
+    for (let i = 0; i < num_tasks; i++) {
+        list.push(
+            <DailyTasks
+                title="History Essay"
+                desc="Very important"
+                priority={20}/>
+        )
     }
 
     return (
         <>
-            <div>
-                <h1> Today </h1>
+            <div class="today-header">
+                <h1>Hello!</h1>
+                <p>You have {num_tasks} tasks today :0</p>
             </div>
+
+            {list}
+
             <Navbar
                 idx={props.pageIndex}
                 setIndex={props.setIndex}
@@ -26,4 +36,4 @@ const today = () => {
  *   create component 
  */
 
-export default today;
+export default Today;

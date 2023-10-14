@@ -31,3 +31,12 @@
     color: white;
     background-color: transparent;
 }
+
+.today-header {
+    background-color: var(--off-black);
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 18px;
+    border: none;
+    color: white
+}
