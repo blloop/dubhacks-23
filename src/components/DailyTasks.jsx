@@ -1,6 +1,3 @@
-const title = "What im gonna do";
-const desc = "Some more information";
-const priority = 0
 const details_open = false
 
 const DailyTask = props => {

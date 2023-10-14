@@ -1,15 +1,17 @@
 import DailyTasks from './DailyTasks';
 import Navbar from './Navbar';
+import Create from './Create';
 
 const num_tasks = 20;
 
 const Today = props => {
     let list = [];
-    for (let i = 0; i < num_tasks; i++) {
+    for (let i = 0; i < props.taskList.length; i++) {
+        let task = props.taskList[i];
         list.push(
             <DailyTasks
-                title="History Essay"
-                desc="Very important"
+                title={task.title}
+                desc={task.desc}
                 priority={20}/>
         )
     }
@@ -20,6 +22,7 @@ const Today = props => {
                 <h1>Hello!</h1>
                 <p>You have {num_tasks} tasks today :0</p>
             </div>
+            <Create></Create>
 
             {list}
 

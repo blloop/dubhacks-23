@@ -4,6 +4,7 @@
 
 :root {
     --off-black: #292929;
+    --off-white: rgb(194, 194, 194);
 }
 
 .navbar {
@@ -27,6 +28,10 @@
     border: none;
 }
 
+.navbar button:not(.selected):hover {
+    background-color: gray; 
+}
+
 .navbar button:not(.selected) {
     color: white;
     background-color: transparent;
@@ -39,4 +44,31 @@
     border-radius: 18px;
     border: none;
     color: white
+}
+
+.button-black {
+    background-color: var(--off-black);
+    color: white;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 18px;
+    border: none;    
+}
+
+label {
+    color: gray;
+    font-size: 12px;
+}
+
+button {
+    padding: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 18px;
+    border: none;    
+}
+
+button:hover {
+    background-color: var(--off-white);     
 }
