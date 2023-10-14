@@ -1,4 +1,4 @@
-const page1 = () => {
+const today = () => {
     return (
         <div>
             <h1>Hello</h1>
@@ -6,4 +6,4 @@ const page1 = () => {
     )
 }
 
-export default page1;
+export default today;
