@@ -1,23 +1,48 @@
+import { useState } from 'react';
 import './App.css';
 import Today from './components/Today';
 import All from './components/All';
 import Feed from './components/Feed';
 
-let pageIndex = 1;
-
 const App = () => {
+  // let getList = localStorage.getItem('dh23-tasklist');
+  // const [taskList, setTasks] = useState(getList ? 
+  //   JSON.parse(getList) : []
+  // );
+  const [taskList, setTasks] = useState([]);
+  const [pageIndex, setIndex] = useState(0);
+
+  // Function to add task
+  const addTask = (task) => {
+    let tempList = taskList;
+    tempList.push(task);
+    setTasks(tempList);
+  }
+
   switch (pageIndex) {
+    case 0: 
+      return (
+        <Today
+          pageIndex={pageIndex}
+          setIndex={setIndex}
+          addTask={addTask}  
+        />
+      );
     case 1: 
       return (
-        <Today/>
+        <All
+          pageIndex={pageIndex}
+          setIndex={setIndex}
+          addTask={addTask}  
+        />
       );
-    case 2: 
+    default: // case 2
       return (
-        <All/>
-      );
-    case 3: 
-      return (
-        <Feed/>
+        <Feed
+          pageIndex={pageIndex}
+          setIndex={setIndex}
+          addTask={addTask}  
+        />
       );
   }
 }

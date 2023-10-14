@@ -1,9 +1,17 @@
-const all = () => {
+import Navbar from "./Navbar";
+
+const All = props => {
     return (
-        <div>
-            <h1>Hello</h1>
-        </div>
+        <>
+            <div>
+                <h1> All </h1>
+            </div>
+            <Navbar
+                idx={props.pageIndex}
+                setIndex={props.setIndex}
+            />
+        </>
     )
 }
 
-export default all;
+export default All;
