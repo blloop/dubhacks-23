@@ -204,16 +204,20 @@ button:hover {
 }
 
 .disable-div {
-    position: absolute;
+    position: fixed;
+    inset: 0;
     z-index: 10;
-    background-color: #848484;
+    background-color: var(--off-black);
     width: 100%;
     height: 100%;
-    opacity: 0.2;
+    opacity: 0.4;
 }
 
 .window-create {
     background-color: white;
     position: absolute;
-    z-index: 100;   
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
