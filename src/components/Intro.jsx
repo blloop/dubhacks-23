@@ -10,6 +10,7 @@ const Intro = props => {
                     <h1>TaskFeed</h1>
                     <img 
                         className='title-logo'
+                        alt='TaskFeed Logo'
                         src={logo}/>
                 </div>
                 <h2 className='intro-click'>

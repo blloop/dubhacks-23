@@ -110,6 +110,14 @@ button:hover {
     z-index: 2;
 }
 
+.page-register {
+    z-index: 2;
+}
+
+.page-register button {
+    cursor: pointer;
+}
+
 .title-logo {
     height: 120px;
     margin: 0 48px;
