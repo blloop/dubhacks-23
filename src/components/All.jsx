@@ -22,7 +22,10 @@ const All = props => {
                         <div className='disable-div'>
                         </div>
                 </div>
-                <div className='disable-div'></div>
+                <div 
+                    className='disable-div'
+                    onClick={toggleCreate}>
+                </div>
                 <Create 
                     toggleCreate={toggleCreate}
                     addTask={props.addTask}
