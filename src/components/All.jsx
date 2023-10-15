@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Navbar from "./Navbar";
 import Create from './Create';
-import DailyTasks from './DailyTasks';
+import EditTasks from './EditTasks';
 
 const All = props => {
     const [creating, setCreating] = useState(false);
@@ -28,7 +28,7 @@ const All = props => {
     for (let i = 0; i < localTaskList.length; i++) {
         let task = localTaskList[i];
         list.push(
-            <DailyTasks
+            <EditTasks
                 title={task.name}
                 desc={task.desc}
                 priority={task.priority}
@@ -57,6 +57,7 @@ const All = props => {
                     toggleCreate={toggleCreate}
                     addTask={props.addTask}
                 />
+                {list}
                 <Navbar
                     idx={props.pageIndex}
                     setIndex={props.setIndex}

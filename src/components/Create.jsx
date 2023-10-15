@@ -1,8 +1,8 @@
 import React, { ChangeEvent } from "react";
 import { useState } from 'react';
 
-const TODAY = Date.now();
-const MILISECONDS_IN_DAY = 86400000;
+const TODAY = Date.now() / 1000;
+const SECONDS_IN_DAY = 86400;
 
 /*
 TASK structure
@@ -29,9 +29,7 @@ const Create = props => {
     }
 
     function updateDeadline(evt) {
-        let days = (evt.target.valueAsNumber - TODAY) / MILISECONDS_IN_DAY;
-        setDeadline(days + 1.3);
-        console.log(days + 1.3);
+        let days = (evt.target.valueAsNumber - TODAY) / SECONDS_IN_DAY;
     }
     
     function updateEstimate(evt) {
@@ -48,7 +46,6 @@ const Create = props => {
     function createTask() {
         let task = {name: title, desc: desc, priority: priority, duration: estimate, deadline: deadline}
         props.addTask(task);
-        console.log(task);
         props.toggleCreate();
     }
 

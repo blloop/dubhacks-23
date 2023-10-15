@@ -284,6 +284,9 @@ button:hover {
     font-size: 16px;
 }
 
+.window-edit {
+}
+
 .window-create button {
     background-color: transparent;
     width: 60%;
