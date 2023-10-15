@@ -18,9 +18,10 @@ const EditTask = props => {
     let days_left = Math.floor((props.deadline - TODAY) / SECONDS_IN_DAY);
     let readable_date = new Date(deadline * MS_FACTOR).toISOString().split('T')[0];
 
-    const [deadline_txt, setDeadlineText] = useState("Due in " + days_left + " days")
+    let deadline_txt = "Due in " + days_left + " days";
+
     if (days_left < 1) {
-        setDeadlineText("Due TODAY");
+        deadline_txt = "Due TODAY";
     }
 
     function toggleDetails() {
@@ -34,7 +35,7 @@ const EditTask = props => {
 
         days_left = Math.floor((deadline - TODAY) / SECONDS_IN_DAY);
         readable_date = new Date(deadline * MS_FACTOR).toISOString().split('T')[0];
-        setDeadlineText("Due in " + days_left + " days");
+        deadline_txt = "Due in " + days_left + " days";
 
         setDetailsOpen(false);
     }
