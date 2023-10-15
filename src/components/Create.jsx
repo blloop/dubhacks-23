@@ -40,6 +40,10 @@ const Create = props => {
     if (isLongTerm === false) {
         return (
         <div>
+            <h2>One Time Task</h2>
+            <button id="task_type"
+                onClick={toggleType}>Change to long term goal</button>
+
             <label htmlFor="title">Task Name:</label><br></br>
             <input type="text" id="title"
                 onChange={updateTitle}></input>
@@ -50,8 +54,15 @@ const Create = props => {
                 onChange={updateDesc}></textarea>
             <br></br>
 
-            <label htmlFor="priority">Priority:</label>
-            
+            <p>Select Priority:</p>
+            <input type="radio" id="priority_a" name="priority" value={1}></input>
+            <label for="html">A (Top priority)</label>
+            <br></br>
+            <input type="radio" id="priority_b" name="priority" value={2}></input>
+            <label for="html">B (Medium priority)</label>
+            <br></br>
+            <input type="radio" id="priority_c" name="priority" value={3}></input>
+            <label for="html">C (Low priority)</label>
             <br></br>            
 
             <button>Done</button>
