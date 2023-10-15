@@ -13,12 +13,13 @@ priority:num
  */
 
 const Create = props => {
+    const [title, setTitle] = useState(props.task.name);
+    const [desc, setDesc] = useState(props.task.desc);
+    const [priority, setPriority] = useState(props.task.priority);
+    const [deadline, setDeadline] = useState(props.task.deadline);
+    const [estimate, setEstimate] = useState(props.task.duration);
 
-    const [title, setTitle] = useState(props.title);
-    const [desc, setDesc] = useState(props.desc);
-    const [priority, setPriority] = useState(props.priority);
-    const [deadline, setDeadline] = useState(props.deadline);
-    const [estimate, setEstimate] = useState(props.estimate);
+    let readable_date = new Date(props.task.deadline * MS_FACTOR).toISOString().split('T')[0];
 
     // function saveTask() {
     //     let task = {name: title, desc: desc, priority: priority, duration: estimate, deadline: deadline}
@@ -50,14 +51,14 @@ const Create = props => {
 
     function editTask() {
         let task = {
-            id: 99,
+            id: props.id,
             name: title,
             desc: desc, 
             priority: priority, 
             duration: estimate, 
             deadline: deadline
         }
-        props.addTask(task);
+        props.editTask(props.id, task);
         props.closeEdit();
     }
 
@@ -72,23 +73,24 @@ const Create = props => {
                 id="title" 
                 rows="1" columns="50"
                 className="non-resizable"
-                onChange={updateTitle}/>
+                onChange={updateTitle}>{title}</textarea>
             <label htmlFor="date">Due Date</label>
             <input
                 type="date"
                 id="date" 
+                value={readable_date}
                 onChange={updateDeadline}/>
             <label htmlFor="desc">Description:</label>
             <textarea
                 id="desc"
                 rows="4"
-                onChange={updateDesc}/>
+                onChange={updateDesc}>{desc}</textarea>
             <label htmlFor="estimate">Time Estimate</label>
             <div className='estimate-box non-resizable'>
                 <input
                     type="number"
                     id="estimate" 
-                    onChange={updateEstimate}/>
+                    onChange={updateEstimate} value={estimate}/>
                 <label>minutes</label>
             </div>
 

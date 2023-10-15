@@ -101,7 +101,7 @@ const App = () => {
   const editTask = (id, task) => {
     let tempList = taskList;
     for (let i = 0; i < tempList.length; i++) {
-      if (tempList[i].id === id) {
+      if (i === id) {
         tempList[i] = task;
         break;
       }

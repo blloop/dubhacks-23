@@ -18,7 +18,7 @@ const EditTask = props => {
     }
 
     return (
-        <div onClick={() => props.setEditing(!props.editing)} className={"priority " + priorityClass}>
+        <div onClick={() => props.openEdit(props.id)} className={"priority " + priorityClass}>
             <h3>{props.title}</h3>
             <label>{deadline_txt}</label>
         </div>

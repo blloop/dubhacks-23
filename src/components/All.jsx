@@ -47,7 +47,7 @@ const All = props => {
                 estimate={task.duration}
                 saveEdits={props.editTask}
                 editing={editing}
-                setEditing={() => openEdit(i)}
+                openEdit={() => openEdit(i)}
                 closeEdit={() => setEditing(false)}
             />
         )
@@ -98,7 +98,9 @@ const All = props => {
                 </div>
                 <Edit
                     closeEdit={() => setEditing(false)}
-                    addTask={props.addTask}
+                    task={props.taskList[openID]}
+                    id={openID}
+                    editTask={props.editTask}
                 />
                 {list}
                 <Navbar
