@@ -9,6 +9,7 @@ const App = () => {
   const [taskList, setTasks] = useState([]);
   const [feedList, setFeed] = useState([]);
   const [pageIndex, setIndex] = useState(0);
+  const [userName, setUserName] = useState("");
 
   // get task data from Google Sheets
   const fetchTasks = () => {
@@ -84,6 +85,7 @@ const App = () => {
           setIndex={setIndex}
           addTask={addTask}
           taskList={taskList}
+          userName={userName}
         />
       );
     case 1: 
@@ -92,6 +94,7 @@ const App = () => {
           pageIndex={pageIndex}
           setIndex={setIndex}
           addTask={addTask}  
+          userName={userName}
         />
       );
     default: // case 2
@@ -101,6 +104,7 @@ const App = () => {
           setIndex={setIndex}
           addTask={addTask}
           feedList={feedList}
+          userName={userName}
         />
       );
   }

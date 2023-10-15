@@ -50,14 +50,10 @@ const Create = props => {
     }
 
     function createTask() {
-        /*
-            tempList.push({
-            name: taskData[i][0],
-            desc: taskData[i][1],
-            priority: taskData[i][2],
-            duration: taskData[i][3],
-            deadline: taskData[i][4]
-        */
+        let task = {name: title, desc: desc, priority: priority, duration: estimate, deadline: deadline}
+        props.addTask(task);
+        console.log(task);
+        //props.closeWindow();
     }
 
     if (isLongTerm === false) {
@@ -92,7 +88,7 @@ const Create = props => {
             <label for="html">C (Low priority)</label>
             <br></br>            
 
-            <button>Done</button>
+            <button onClick={createTask}>Done</button>
         </div>
          )
     } else {
