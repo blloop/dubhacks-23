@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 const All = props => {
     return (
         <>
-            <div>
+            <div className='page-all'>
                 <h1> All </h1>
             </div>
             <Navbar
