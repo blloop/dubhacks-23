@@ -1,6 +1,29 @@
+import React, { ChangeEvent } from "react";
+import { useState } from 'react';
+
 const title = ""
 
+/*
+deadline:num
+desc:text
+duration:num
+name:text
+priority:num
+ */
+
 const Create = props => {
+    const [title, setTitle] = useState("");
+    const [desc, setDesc] = useState("");
+
+    function updateTitle(evt) {
+        setTitle(evt.target.value);
+    }
+
+    function updateDesc(evt) {
+        setDesc(evt.target.value);
+        console.log(evt)
+    }
+
     return (
         <div>
             <label htmlFor="title">Task Name:</label><br></br>
@@ -13,7 +36,8 @@ const Create = props => {
             <br></br>
 
             <label htmlFor="desc">Description:</label><br></br>
-            <textarea id="desc"></textarea>
+            <textarea id="desc"
+                onChange={updateDesc}></textarea>
             <br></br>
 
             <label htmlFor="estimate">Time Estimate (Minutes):</label><br></br>
@@ -24,10 +48,6 @@ const Create = props => {
             <button>Done</button>
         </div>
     )
-}
-
-function updateTitle() {
-    return;
 }
 
 export default Create;

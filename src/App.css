@@ -5,6 +5,7 @@
 
 :root {
     --off-black: #292929;
+    --off-white: rgb(194, 194, 194);
     --round-border: 24px;
     --page-spacing: 12px;
 }
