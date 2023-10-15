@@ -26,6 +26,7 @@ const App = () => {
             const taskData = JSON.parse(rep)['values'];
             for (let i = 1; i < taskData.length; i++) {
               tempList.push({
+                id: i,
                 name: taskData[i][0],
                 desc: taskData[i][1],
                 priority: parseInt(taskData[i][2]),
@@ -52,6 +53,7 @@ const App = () => {
             const taskData = JSON.parse(rep)['values'];
             for (let i = 1; i < taskData.length; i++) {
               tempList.push({
+                id: i,
                 name: taskData[i][0],
                 user: taskData[i][1],
                 date: parseInt(taskData[i][2]),
@@ -77,7 +79,9 @@ const App = () => {
     setTasks(tempList);
   }
 
-  console.log(feedList)
+  const editTask = (id, task) => {
+    return;
+  }
 
   switch (pageIndex) {
     case -2:
@@ -109,6 +113,7 @@ const App = () => {
           pageIndex={pageIndex}
           setIndex={setIndex}
           addTask={addTask}
+          editTask={editTask}
           taskList={taskList}
           userName={userName}
         />
