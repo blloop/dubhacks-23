@@ -58,7 +58,7 @@ const Create = props => {
 
     if (isLongTerm === false) {
         return (
-        <div>
+        <div className="window-create">
             <h2>One Time Task</h2>
             <button id="task_type"
                 onClick={toggleType}>Change to long term goal</button>

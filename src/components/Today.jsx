@@ -1,6 +1,5 @@
 import DailyTasks from './DailyTasks';
 import Navbar from './Navbar';
-import Create from './Create';
 
 const Today = props => {
     let list = [];
@@ -10,7 +9,8 @@ const Today = props => {
             <DailyTasks
                 title={task.name}
                 desc={task.desc}
-                priority={task.priority}/>
+                priority={task.priority}
+                deadline={task.deadline}/>
         )
     }
 
@@ -20,9 +20,6 @@ const Today = props => {
                 <h1>Hello {props.userName}!</h1>
                 <p>You have {props.taskList.length} tasks today {":)"}</p>
             </div>
-            
-            <Create 
-                addTask={props.addTask}></Create>
 
             {list}
 
@@ -30,8 +27,9 @@ const Today = props => {
                 idx={props.pageIndex}
                 setIndex={props.setIndex}
             />
+            <br></br><br></br><br></br>
         </>
-        
+
     )
 }
 
