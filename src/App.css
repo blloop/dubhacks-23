@@ -112,6 +112,7 @@ button:hover {
 
 .page-register {
     z-index: 2;
+    color: white;
 }
 
 .page-register button {
