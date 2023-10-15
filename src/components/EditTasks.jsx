@@ -1,9 +1,10 @@
 import { useState } from 'react';
 
-const TODAY = Date.now() / 1000;
+const MS_FACTOR = 1000;
+const TODAY = Date.now() / MS_FACTOR;
 const SECONDS_IN_DAY = 86400;
 
-const DailyTask = props => {
+const EditTask = props => {
     const [details_open, setDetailsOpen] = useState(false);
 
     const [title, setTitle] = useState(props.title);
@@ -15,8 +16,8 @@ const DailyTask = props => {
     let priorityClass = "p" + props.priority;
     
     let days_left = Math.floor((props.deadline - TODAY) / SECONDS_IN_DAY);
+    let readable_date = new Date(deadline * MS_FACTOR).toISOString().split('T')[0];
 
-    let readable_date = "2025-01-01";
     let deadline_txt = "Due in " + days_left + " days";
     if (days_left < 1) {
         deadline_txt =  "Due TODAY";
@@ -38,22 +39,43 @@ const DailyTask = props => {
     }
 
     function updateDeadline(evt) {
-        setDeadline(evt.target.valueAsNumber / 1000);
+        setDeadline(evt.target.valueAsNumber / MS_FACTOR);
+        console.log(deadline)
+    }
+
+    function updateDesc(evt) {
+        setDesc(evt.target.value);
+    }
+
+    function updateEstimate(evt) {
+        setEstimate(evt.target.value);
     }
 
     if (details_open) {
         return (
             <div className={"clicked-priority " + priorityClass}>
                 <h3 onClick={toggleDetails}>Editing...</h3>
-                    <label htmlFor="title">Task Name:</label><br></br>
+                    <label htmlFor="title">Task Name:</label>
+                    <br></br>
                     <textarea type="text" id="title" className="non-resizable"
 
                         onChange={updateTitle}>{props.title}</textarea>
                     <br></br>
-                    <label htmlFor="date">Due Date</label><br></br>
+                    <label htmlFor="date">Due Date</label>
+                    <br></br>
                     <input type="date" id="date" value={readable_date}
                         onChange={updateDeadline}/>
-                    <p>{props.desc}</p>
+                    <br></br>
+                    <label htmlFor="desc">Description:</label>
+                    <br></br>
+                    <textarea id="desc" rows="4"
+                        onChange={updateDesc}>{props.desc}</textarea>
+                    <label htmlFor="estimate">Time Estimate</label>
+                    <div className='estimate-box non-resizable'>
+                        <textarea id="estimate" rows="2"
+                            onChange={updateEstimate}>{props.estimate}</textarea>
+                        <label>minutes</label>
+                    </div>
                 <div>
                     <button className="button-black" onClick={saveTask}>Save Changes</button>
                 </div>
@@ -69,4 +91,4 @@ const DailyTask = props => {
     }
 }
 
-export default DailyTask;
+export default EditTask;

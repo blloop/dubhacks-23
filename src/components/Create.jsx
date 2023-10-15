@@ -1,8 +1,7 @@
 import React, { ChangeEvent } from "react";
 import { useState } from 'react';
 
-const TODAY = Date.now() / 1000;
-const SECONDS_IN_DAY = 86400;
+const MS_FACTOR = 1000;
 
 /*
 TASK structure
@@ -29,7 +28,7 @@ const Create = props => {
     }
 
     function updateDeadline(evt) {
-        setDeadline(evt.target.valueAsNumber / 1000);
+        setDeadline(evt.target.valueAsNumber / MS_FACTOR);
     }
     
     function updateEstimate(evt) {
