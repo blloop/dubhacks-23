@@ -51,8 +51,6 @@ const All = props => {
                 </div>
                 <button className="add-task"
                     onClick={toggleCreate}>ADD TASK</button>
-                <div className='disable-div'>
-                </div>
                 <div 
                     className='disable-div'
                     onClick={toggleCreate}>
