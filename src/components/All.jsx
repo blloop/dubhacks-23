@@ -31,6 +31,7 @@ const All = props => {
         list.push(
             <EditTasks
                 key={i}
+                id={i}
                 title={task.name}
                 desc={task.desc}
                 priority={task.priority}

@@ -80,7 +80,10 @@ const App = () => {
   }
 
   const editTask = (id, task) => {
-    return;
+    let tempList = taskList;
+    tempList[id] = task;
+    console.log(tempList);
+    setTasks(tempList);
   }
 
   switch (pageIndex) {
