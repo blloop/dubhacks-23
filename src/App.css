@@ -286,6 +286,10 @@ button:hover {
     margin-top: 6px;
 }
 
+.non-resizable {
+    resize: none;
+}
+
 #date {
     padding: 8px;
 }
