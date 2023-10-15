@@ -17,8 +17,13 @@ const Create = props => {
 
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
-    const [deadline, setDeadline] = useState(0);
-    const [estimate, setEstimate] = useState(0);
+    const [priority, setPriority] = useState(-1);
+    const [deadline, setDeadline] = useState(-1);
+    const [estimate, setEstimate] = useState(-1);
+
+    function toggleType() {
+        setLongTerm(!isLongTerm);
+    }
 
     function updateTitle(evt) {
         setTitle(evt.target.value);
@@ -37,12 +42,17 @@ const Create = props => {
         setEstimate(evt.target.value);
     }
 
+    function createTask() {
+        console.log
+    }
+
     if (isLongTerm === false) {
         return (
         <div>
             <h2>One Time Task</h2>
             <button id="task_type"
                 onClick={toggleType}>Change to long term goal</button>
+            <br></br>
 
             <label htmlFor="title">Task Name:</label><br></br>
             <input type="text" id="title"
@@ -70,15 +80,14 @@ const Create = props => {
          )
     } else {
         return (
-            <div>
+        <div>
+            <h2>Long Term Goal</h2>
+            <button id="task_type"
+                onClick={toggleType}>Change to short term task</button>
+            <br></br>
             <label htmlFor="title">Task Name:</label><br></br>
             <input type="text" id="title"
                 onChange={updateTitle}></input>
-            <br></br>
-
-            <label htmlFor="deadline">Due Date:</label><br></br>
-            <input type="date" id="deadline"
-                onChange={updateDeadline}></input>
             <br></br>
 
             <label htmlFor="desc">Description:</label><br></br>
@@ -86,12 +95,17 @@ const Create = props => {
                 onChange={updateDesc}></textarea>
             <br></br>
 
-            <label htmlFor="estimate">Time Estimate (Minutes):</label><br></br>
+            <label htmlFor="deadline">Due Date:</label><br></br>
+            <input type="date" id="deadline"
+                onChange={updateDeadline}></input>
+            <br></br>
+
+            <label htmlFor="estimate">Time Estimate (Hours):</label><br></br>
             <input type="number" id="estimate" onChange={updateEstimate}></input>
             <br></br>
             <br></br>
 
-            <button>Done</button>
+            <button onClick={createTask}>Done</button>
         </div>
         )
     }  
