@@ -19,8 +19,9 @@ const EditTask = props => {
     let readable_date = new Date(deadline * MS_FACTOR).toISOString().split('T')[0];
 
     let deadline_txt = "Due in " + days_left + " days";
+
     if (days_left < 1) {
-        deadline_txt =  "Due TODAY";
+        deadline_txt = "Due TODAY";
     }
 
     function toggleDetails() {
@@ -29,8 +30,13 @@ const EditTask = props => {
 
     function saveTask() {
         let task = {name: title, desc: desc, priority: priority, duration: estimate, deadline: deadline}
+        console.log(task);
         props.saveEdits(props.id, task);
-        console.log(task.id);
+
+        days_left = Math.floor((deadline - TODAY) / SECONDS_IN_DAY);
+        readable_date = new Date(deadline * MS_FACTOR).toISOString().split('T')[0];
+        deadline_txt = "Due in " + days_left + " days";
+
         setDetailsOpen(false);
     }
 
@@ -40,7 +46,6 @@ const EditTask = props => {
 
     function updateDeadline(evt) {
         setDeadline(evt.target.valueAsNumber / MS_FACTOR);
-        console.log(deadline)
     }
 
     function updateDesc(evt) {
@@ -58,17 +63,18 @@ const EditTask = props => {
                 <h3 onClick={toggleDetails}>{title}</h3>
                     <label htmlFor="title">Task Name:</label>
                     <textarea type="text" id="title" className="non-resizable"
-                        onChange={updateTitle}>{props.title}</textarea>
+
+                        onChange={updateTitle}>{title}</textarea>
                     <label htmlFor="date">Due Date</label>
                     <input type="date" id="date" value={readable_date}
                         onChange={updateDeadline}/>
                     <label htmlFor="desc">Description:</label>
                     <textarea id="desc" rows="4"
-                        onChange={updateDesc}>{props.desc}</textarea>
+                        onChange={updateDesc}>{desc}</textarea>
                     <label htmlFor="estimate">Time Estimate</label>
                     <div className='estimate-box non-resizable'>
                         <textarea id="estimate" rows="2" className="non-resizable"
-                            onChange={updateEstimate}>{props.estimate}</textarea>
+                            onChange={updateEstimate}>{estimate}</textarea>
                         <label>minutes</label>
                     </div>
                 <div>
@@ -79,7 +85,7 @@ const EditTask = props => {
     } else {
         return (
             <div onClick={toggleDetails} className={"priority " + priorityClass}>
-                <h3>{props.title}</h3>
+                <h3>{title}</h3>
                 <label>{deadline_txt}</label>
             </div>
         );

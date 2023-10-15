@@ -99,7 +99,9 @@ const App = () => {
   }
 
   const editTask = (id, task) => {
-    return;
+    let tempList = taskList;
+    tempList[id] = task;
+    setTasks(tempList);
   }
 
   switch (pageIndex) {

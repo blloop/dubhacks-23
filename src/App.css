@@ -2,6 +2,7 @@
     --off-black: #292929;
     --off-gray: #949494;
     --off-white: #dddddd;
+    --lime-green: rgb(158, 255, 158);
     --round-border: 22px;
     --round-small: 12px;
     --page-spacing: 18px;
@@ -299,12 +300,22 @@ button:not(.selected):hover {
     cursor: pointer;
 }
 
+.priority h3 {
+    margin: 0 0 10px;
+    
+}
+
 .priority:not(.clicked):hover {
     background-color: var(--off-white);
 }
 
 .clicked {
     background-color: var(--off-white);
+}
+
+.clicked h3 {
+    margin: 0 0 10px;
+    
 }
 
 /* Add Page */
@@ -325,6 +336,22 @@ button:not(.selected):hover {
     width: 100%;
     height: 100%;
     opacity: 0.4;
+}
+
+.disabled-task {
+    opacity: 0.5;
+}
+
+.disabled-task h3 {
+    margin: 0 0 0px;
+}
+
+.completed {
+    background-color: var(--off-white);
+}
+
+.failed {
+    background-color: var(--off-white);
 }
 
 .window-create {
