@@ -2,9 +2,24 @@ import DailyTasks from './DailyTasks';
 import Navbar from './Navbar';
 
 const Today = props => {
+    let localTaskList = [...props.taskList];
+
+
+    function comparePriority(a, b) {
+        if (a.priority < b.priority) {
+            return -1;
+        }
+        if (a.priority > b.priority) {
+            return 1;
+        }
+        return 0;
+    }
+
+    localTaskList.sort( comparePriority );
+
     let list = [];
-    for (let i = 0; i < props.taskList.length; i++) {
-        let task = props.taskList[i];
+    for (let i = 0; i < localTaskList.length; i++) {
+        let task = localTaskList[i];
         list.push(
             <DailyTasks
                 title={task.name}
@@ -18,9 +33,9 @@ const Today = props => {
         <>
             <div className='dark-header'>
                 <h1>Hello {props.userName}!</h1>
-                <p>You have {props.taskList.length} tasks today {":)"}</p>
+                <p>You have {localTaskList.length} tasks today {":)"}</p>
             </div>
-
+            <br></br>
             {list}
 
             <Navbar
