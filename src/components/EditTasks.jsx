@@ -58,7 +58,6 @@ const EditTask = props => {
                 <h3 onClick={toggleDetails}>{title}</h3>
                     <label htmlFor="title">Task Name:</label>
                     <textarea type="text" id="title" className="non-resizable"
-
                         onChange={updateTitle}>{props.title}</textarea>
                     <label htmlFor="date">Due Date</label>
                     <input type="date" id="date" value={readable_date}

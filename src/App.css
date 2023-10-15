@@ -6,6 +6,7 @@
     --round-small: 12px;
     --page-spacing: 18px;
     --set-width: 480px;
+    --demo-height: -80px;
 }
 
 * {
@@ -92,15 +93,26 @@ button:not(.selected):hover {
 
 .notification {
     display: flex;
-    justify-content: space-between;
-    position: fixed;
-    top: var(--page-spacing);
+    align-items: flex-start;
+    gap: 12px;
+    position: absolute;
+    top: var(--demo-height);
     width: 400px;
-    padding: 5px;
+    padding: 12px 18px;
     margin: 0 20px;
+    font-size: 20px;
     border-radius: var(--round-border);
     background-color: white;
     border: 2px solid var(--off-black);
+    transition: 0.5s all ease-in-out;
+}
+
+.notification img {
+    margin-top: 4px;
+}
+
+.notification p {
+    margin: 0;
 }
 
 .bold {

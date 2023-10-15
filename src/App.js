@@ -12,6 +12,7 @@ const App = () => {
   const [feedList, setFeed] = useState([]);
   const [pageIndex, setIndex] = useState(-2);
   const [userName, setUserName] = useState("johndoedoe");
+  const [notify, setNotify] = useState(false);
 
   // get task data from Google Sheets
   const fetchTasks = () => {
@@ -72,6 +73,20 @@ const App = () => {
     fetchFeed();
   }, []);
 
+  // check for keypress to activate notify demo
+  useEffect(() => {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'n' && !notify) {
+        setNotify(true);
+        document.querySelector(':root').style.setProperty('--demo-height', '20px');
+        setTimeout(() => {
+          setNotify(false);
+          document.querySelector(':root').style.setProperty('--demo-height', '-80px');
+        }, 2000)
+      } 
+    })
+  });
+
   // add task to task list
   const addTask = (task) => {
     let tempList = taskList;
@@ -82,7 +97,7 @@ const App = () => {
   const editTask = (id, task) => {
     return;
   }
-
+  console.log(notify)
   switch (pageIndex) {
     case -2:
       return (
@@ -105,6 +120,7 @@ const App = () => {
           addTask={addTask}
           taskList={taskList}
           userName={userName}
+          notify={notify}
         />
       );
     case 1: 
@@ -116,6 +132,7 @@ const App = () => {
           editTask={editTask}
           taskList={taskList}
           userName={userName}
+          notify={notify}
         />
       );
     default: // case 2
@@ -126,6 +143,7 @@ const App = () => {
           addTask={addTask}
           feedList={feedList}
           userName={userName}
+          notify={notify}
         />
       );
   }
