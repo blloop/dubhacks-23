@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import FeedTask from './FeedTask';
 import profile from '../img/profile.svg';
+import DemoNotif from './DemoNotif';
 
 const Feed = props => {
     console.log(props.feedList)
@@ -19,6 +20,7 @@ const Feed = props => {
 
     return (
         <>
+            <DemoNotif></DemoNotif>
             <div className='dark-bg'></div>
             <div className='feed-header'>
                 <button>+ Add Friends</button>

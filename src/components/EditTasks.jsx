@@ -53,26 +53,22 @@ const EditTask = props => {
 
     if (details_open) {
         return (
-            <div className={"clicked " + priorityClass}>
-                <h3 onClick={toggleDetails}>Editing...</h3>
+            <div className={"window-edit clicked " + priorityClass}>
+                <i><b onClick={toggleDetails}>Editing</b></i>
+                <h3 onClick={toggleDetails}>{title}</h3>
                     <label htmlFor="title">Task Name:</label>
-                    <br></br>
                     <textarea type="text" id="title" className="non-resizable"
 
                         onChange={updateTitle}>{props.title}</textarea>
-                    <br></br>
                     <label htmlFor="date">Due Date</label>
-                    <br></br>
                     <input type="date" id="date" value={readable_date}
                         onChange={updateDeadline}/>
-                    <br></br>
                     <label htmlFor="desc">Description:</label>
-                    <br></br>
                     <textarea id="desc" rows="4"
                         onChange={updateDesc}>{props.desc}</textarea>
                     <label htmlFor="estimate">Time Estimate</label>
                     <div className='estimate-box non-resizable'>
-                        <textarea id="estimate" rows="2"
+                        <textarea id="estimate" rows="2" className="non-resizable"
                             onChange={updateEstimate}>{props.estimate}</textarea>
                         <label>minutes</label>
                     </div>
