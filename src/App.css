@@ -25,6 +25,10 @@ h1 {
     margin: 0;
 }
 
+h3 {
+    margin: 0 0 36px;
+}
+
 label {
     color: gray;
 }
@@ -121,10 +125,30 @@ button:hover {
 .page-register {
     z-index: 2;
     color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 18px;
+    padding: 36px;
 }
 
 .page-register button {
     cursor: pointer;
+}
+
+.page-register input {
+    padding: 12px;
+    border-radius: 24px;
+    margin: 0 0 12px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    font-size: 16px;
+}
+
+.passtext {
+    font-size: 16px !important;
+    margin-bottom: 48px;
 }
 
 .title-logo {
@@ -187,24 +211,22 @@ button:hover {
     object-fit: cover;
 }
 
-.p1 {
+.p1, .p2, .p3 {
     border-radius: var(--round-border);
     padding: 10px;
     border-style: solid;
+    margin-bottom: var(--page-spacing);
+}
+
+.p1 {
     border-color: red;
 }
 
 .p2 {
-    border-radius: var(--round-border);
-    padding: 10px;
-    border-style: solid;
     border-color: orange;
 }
 
 .p3 {
-    border-radius: var(--round-border);
-    padding: 10px;
-    border-style: solid;
     border-color: yellow;
 }
 
