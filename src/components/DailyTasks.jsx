@@ -31,7 +31,7 @@ const DailyTask = props => {
                     <p>{props.desc}</p>
                 </div>
                 <div>
-                    <p><b>Did you finish this for today?</b></p>
+                    <p className='bold'>Did you finish this for today?</p>
                     <button className="button-black" onClick={finishTask}>Yes</button>
                     <button className="button-black" onClick={finishTask}>No</button>
                 </div>
