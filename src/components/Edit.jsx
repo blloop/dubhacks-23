@@ -13,36 +13,42 @@ priority:num
  */
 
 const Create = props => {
-    const [title, setTitle] = useState("");
-    const [desc, setDesc] = useState("");
-    const [priority, setPriority] = useState(2);
-    const [deadline, setDeadline] = useState(-1);
-    const [estimate, setEstimate] = useState(-1);
+
+    const [title, setTitle] = useState(props.title);
+    const [desc, setDesc] = useState(props.desc);
+    const [priority, setPriority] = useState(props.priority);
+    const [deadline, setDeadline] = useState(props.deadline);
+    const [estimate, setEstimate] = useState(props.estimate);
+
+    // function saveTask() {
+    //     let task = {name: title, desc: desc, priority: priority, duration: estimate, deadline: deadline}
+    //     console.log(task);
+    //     props.saveEdits(props.id, task);
+
+    //     days_left = Math.floor((deadline - TODAY) / SECONDS_IN_DAY);
+    //     readable_date = new Date(deadline * MS_FACTOR).toISOString().split('T')[0];
+    //     deadline_txt = "Due in " + days_left + " days";
+
+    //     props.setEditing(false);
+    // }
 
     function updateTitle(evt) {
         setTitle(evt.target.value);
+    }
+
+    function updateDeadline(evt) {
+        setDeadline(evt.target.valueAsNumber / MS_FACTOR);
     }
 
     function updateDesc(evt) {
         setDesc(evt.target.value);
     }
 
-    function updateDeadline(evt) {
-        setDeadline(evt.target.valueAsNumber / MS_FACTOR);
-    }
-    
     function updateEstimate(evt) {
         setEstimate(evt.target.value);
     }
 
-    function updatePriority(evt) {
-        if (evt.target.checked) {
-            setPriority(evt.target.value);
-            console.log(evt.target.value)
-        }
-    }
-
-    function createTask() {
+    function editTask() {
         let task = {
             id: 99,
             name: title,
@@ -52,14 +58,14 @@ const Create = props => {
             deadline: deadline
         }
         props.addTask(task);
-        props.toggleCreate();
+        props.closeEdit();
     }
 
     return (
         <div className="window-create">
             <p 
                 className='window-close'
-                onClick={props.toggleCreate}>X</p>
+                onClick={props.closeEdit}>X</p>
             <label htmlFor="title">Task Name:</label>
             <textarea
                 type="text"
@@ -97,7 +103,7 @@ const Create = props => {
             onChange={updatePriority}></input>
             <label htmlFor="html">C (Low priority)</label> */}
 
-            <button onClick={createTask}>Done</button>
+            <button onClick={editTask}>Done</button>
         </div>
     );
 }

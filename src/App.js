@@ -100,8 +100,13 @@ const App = () => {
 
   const editTask = (id, task) => {
     let tempList = taskList;
-    tempList[id] = task;
-    setTasks(tempList);
+    for (let i = 0; i < tempList.length; i++) {
+      if (tempList[i].id === id) {
+        tempList[i] = task;
+        break;
+      }
+    }
+    return;
   }
 
   switch (pageIndex) {
