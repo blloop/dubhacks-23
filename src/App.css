@@ -256,6 +256,7 @@ button:hover {
 
 .page-all {
     z-index: 0;
+    margin-bottom: var(--page-spacing);
 }
 
 .disable-div {
