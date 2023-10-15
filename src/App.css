@@ -217,6 +217,10 @@ button:hover {
     border-color: yellow;
 }
 
+.p3:hover {
+    background-color: var(--off-white2);
+}
+
 /* Add Page */
 
 .add-task {
