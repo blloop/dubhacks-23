@@ -1,6 +1,7 @@
 :root {
     --off-black: #292929;
-    --off-white: #c2c2c2;
+    --off-white: #afafaf;
+    --off-white2: rgb(248, 248, 248);
     --round-border: 22px;
     --round-small: 6px;
     --page-spacing: 18px;
@@ -228,6 +229,14 @@ button:hover {
 
 .p3 {
     border-color: yellow;
+}
+
+.priority:hover {
+    background-color: var(--off-white2);
+}
+
+.clicked-priority {
+    background-color: var(--off-white2);
 }
 
 /* Add Page */
