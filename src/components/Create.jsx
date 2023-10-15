@@ -54,17 +54,27 @@ const Create = props => {
                 className='window-close'
                 onClick={props.toggleCreate}>X</p>
             <label htmlFor="title">Task Name:</label>
-            <textarea type="text" id="title" className="non-resizable"
+            <textarea
+                type="text"
+                id="title" 
+                rows="1" columns="50"
+                className="non-resizable"
                 onChange={updateTitle}/>
             <label htmlFor="date">Due Date</label>
-            <input type="date" id="date" 
+            <input
+                type="date"
+                id="date" 
                 onChange={updateDeadline}/>
             <label htmlFor="desc">Description:</label>
-            <textarea id="desc" rows="4"
+            <textarea
+                id="desc"
+                rows="4"
                 onChange={updateDesc}/>
             <label htmlFor="estimate">Time Estimate</label>
             <div className='estimate-box non-resizable'>
-                <textarea id="estimate" rows="2"
+                <textarea 
+                    id="estimate" 
+                    rows="1" columns="3"
                     onChange={updateEstimate}/>
                 <label>minutes</label>
             </div>
