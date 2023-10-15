@@ -42,8 +42,22 @@ const Create = props => {
         setEstimate(evt.target.value);
     }
 
+    function updatePriority(evt) {
+        if (evt.target.checked) {
+            setPriority(evt.target.value);
+            console.log(evt.target.value)
+        }
+    }
+
     function createTask() {
-        console.log
+        /*
+            tempList.push({
+            name: taskData[i][0],
+            desc: taskData[i][1],
+            priority: taskData[i][2],
+            duration: taskData[i][3],
+            deadline: taskData[i][4]
+        */
     }
 
     if (isLongTerm === false) {
@@ -65,13 +79,16 @@ const Create = props => {
             <br></br>
 
             <p>Select Priority:</p>
-            <input type="radio" id="priority_a" name="priority" value={1}></input>
+            <input type="radio" id="priority_a" name="priority" value={1}
+                onChange={updatePriority}></input>
             <label for="html">A (Top priority)</label>
             <br></br>
-            <input type="radio" id="priority_b" name="priority" value={2}></input>
+            <input type="radio" id="priority_b" name="priority" value={2}
+                onChange={updatePriority}></input>
             <label for="html">B (Medium priority)</label>
             <br></br>
-            <input type="radio" id="priority_c" name="priority" value={3}></input>
+            <input type="radio" id="priority_c" name="priority" value={3}
+                onChange={updatePriority}></input>
             <label for="html">C (Low priority)</label>
             <br></br>            
 
