@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Navbar from "./Navbar";
+import DemoNotif from './DemoNotif';
 import Create from './Create';
 import EditTasks from './EditTasks';
 
@@ -41,6 +42,7 @@ const All = props => {
     if (creating) {
         return (
             <>
+                <DemoNotif></DemoNotif>
                 <div className='dark-header'>
                     <h1>Hello {props.userName}!</h1>
                     <p>You have {props.taskList.length} tasks today {":)"}</p>
@@ -69,6 +71,7 @@ const All = props => {
     } else {
         return (
             <>
+                <DemoNotif></DemoNotif>
                 <div className='dark-header'>
                     <h1>Hello {props.userName}!</h1>
                     <p>You have {props.taskList.length} tasks today {":)"}</p>
