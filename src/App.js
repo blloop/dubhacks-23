@@ -16,6 +16,7 @@ const App = () => {
 
   // get task data from Google Sheets
   const fetchTasks = (user) => {
+    if (user === 'unnamed') return;
     try {
       let url = `https://sheets.googleapis.com/v4/spreadsheets/${SECRETS.SHEET_ID}`;
       url += `/values/${user}?alt=json&key=${SECRETS.API_KEY}`;
@@ -45,7 +46,7 @@ const App = () => {
   const fetchFeed = () => {
     try {
       let url = `https://sheets.googleapis.com/v4/spreadsheets/${SECRETS.SHEET_ID}`;
-      url += `/values/${SECRETS.FEED_SHEET}?alt=json&key=${SECRETS.API_KEY}`;
+      url += `/values/Social?alt=json&key=${SECRETS.API_KEY}`;
       fetch(url)
         .then(res => res.text())
         .then(rep => {
@@ -71,7 +72,6 @@ const App = () => {
 
   // get user data based on name
   const pullData = (user) => {
-    console.log(user)
     setUserName(user);
     fetchTasks(user);
     fetchFeed();
@@ -91,10 +91,44 @@ const App = () => {
     })
   });
 
+  const pushData = (data) => {
+    let newData = [];
+    for (let i = 0; i < data.length; i++) {
+      newData.push([
+        data.name,
+        data.desc, 
+        data.priority, 
+        data.duration,
+        data.deadline
+      ]);
+    }
+    console.log(newData);
+    try {
+      let url = `https://sheets.googleapis.com/v4/spreadsheets/${SECRETS.SHEET_ID}` 
+      url += `?includeGridData=false`;
+      fetch(url, {
+        range: `${userName}A2`,
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+          'Access-Control-Allow-Methods': 'PUT, POST, GET, DELETE, OPTIONS'
+        },
+        body: JSON.stringify(newData)
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   // add task to task list
   const addTask = (task) => {
     let tempList = taskList;
     tempList.push(task);
+    if (userName !== 'unnamed') {
+      pushData(tempList);      
+    }
     setTasks(tempList);
   }
 
