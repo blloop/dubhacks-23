@@ -11,14 +11,14 @@ const App = () => {
   const [taskList, setTasks] = useState([]);
   const [feedList, setFeed] = useState([]);
   const [pageIndex, setIndex] = useState(-2);
-  const [userName, setUserName] = useState("johndoedoe");
+  const [userName, setUserName] = useState("");
   const [notify, setNotify] = useState(false);
 
   // get task data from Google Sheets
-  const fetchTasks = () => {
+  const fetchTasks = (user) => {
     try {
       let url = `https://sheets.googleapis.com/v4/spreadsheets/${SECRETS.SHEET_ID}`;
-      url += `/values/${SECRETS.USER_SHEET}?alt=json&key=${SECRETS.API_KEY}`;
+      url += `/values/${user}?alt=json&key=${SECRETS.API_KEY}`;
       fetch(url)
         .then(res => res.text())
         .then(rep => {
@@ -68,10 +68,14 @@ const App = () => {
       console.log(err);
     }
   }
-  useEffect(() => {
-    fetchTasks();
+
+  // get user data based on name
+  const pullData = (user) => {
+    console.log(user)
+    setUserName(user);
+    fetchTasks(user);
     fetchFeed();
-  }, []);
+  }
 
   // check for keypress to activate notify demo
   useEffect(() => {
@@ -97,7 +101,7 @@ const App = () => {
   const editTask = (id, task) => {
     return;
   }
-  console.log(notify)
+
   switch (pageIndex) {
     case -2:
       return (
@@ -109,7 +113,7 @@ const App = () => {
       return (
         <Register
           setIndex={setIndex}
-          setUserName={setUserName}
+          pullData={pullData}
         />
       );
     case 0: 

@@ -44,8 +44,8 @@ label {
 }
 
 input:not(#estimate), textarea {
-    border: 1px solid white;
-    border-radius: var(--round-border);
+    border: 1px solid black;
+    border-radius: var(--round-small);
     margin: 6px 0 12px;
 }
 
@@ -183,7 +183,7 @@ button:not(.selected):hover {
     border-radius: 24px;
     margin: 0 0 12px;
     background-color: transparent;
-    border: 1px solid white;
+    border: 1px solid white !important;
     color: white;
     font-size: 16px;
 }
@@ -262,6 +262,16 @@ button:not(.selected):hover {
 .feed-buttons button img {
     height: 24px;
     object-fit: cover;
+}
+
+.empty-feed {
+    width: 100%;
+    margin: 0 auto;
+    padding: 12px;
+    background-color: var(--off-gray);
+    font-size: 24px;
+    border-radius: var(--round-small);
+    text-align: center;
 }
 
 .p1, .p2, .p3 {
@@ -370,12 +380,13 @@ button:not(.selected):hover {
     margin-bottom: 12px;
 }
 
-.estimate-box input {
+#estimate {
     border: 1px solid black;
     border-radius: var(--round-small);
+    padding: 8px;
     margin-top: 6px;
     font-size: 36px;
-    width: 80px;
+    width: 100px;
     resize: none;
     overflow: hidden;
 }

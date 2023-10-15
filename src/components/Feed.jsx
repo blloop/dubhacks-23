@@ -17,6 +17,13 @@ const Feed = props => {
                 liked={task.liked}/>
         )
     }
+    if (list.length === 0) {
+        list.push(
+            <div className='empty-feed'>
+                Add friends to see their achievements!
+            </div>
+        )
+    }
 
     return (
         <>

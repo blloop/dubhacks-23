@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const Register = props => {
-    const [username, setUser] = useState("");
+    const [user, setUser] = useState("unnamed");
 
     function updateUsername(evt) {
         setUser(evt.target.value);
@@ -9,7 +9,7 @@ const Register = props => {
 
     function openApp() {
         props.setIndex(0);
-        props.setUserName(username);
+        props.pullData(user);
     }
 
     return (
