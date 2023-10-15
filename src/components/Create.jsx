@@ -43,7 +43,14 @@ const Create = props => {
     }
 
     function createTask() {
-        let task = {name: title, desc: desc, priority: priority, duration: estimate, deadline: deadline}
+        let task = {
+            id: 99,
+            name: title,
+            desc: desc, 
+            priority: priority, 
+            duration: estimate, 
+            deadline: deadline
+        }
         props.addTask(task);
         props.toggleCreate();
     }
