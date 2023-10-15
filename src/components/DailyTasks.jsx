@@ -23,14 +23,16 @@ const DailyTask = props => {
     if (details_open) {
         return (
             <div>
-            <div className={priorityClass}>
-                <h3 onClick={toggleDetails}>{props.title}</h3>
-                <label>Due in {deadline} days</label>
-                <p>{props.desc}</p>
+            <div className={"clicked-priority " + priorityClass}>
+                <div onClick={toggleDetails}>
+                    <h3>{props.title}</h3>
+                    <label>Due in {deadline} days</label>
+                    <p>{props.desc}</p>
+                </div>
                 <div>
                     <p><b>Did you finish this for today?</b></p>
-                    <button onClick={finishTask}>Yes</button>
-                    <button onClick={finishTask}>No</button>
+                    <button className="button-black" onClick={finishTask}>Yes</button>
+                    <button className="button-black" onClick={finishTask}>No</button>
                 </div>
             </div>
             <br></br>
@@ -39,7 +41,7 @@ const DailyTask = props => {
     } else {
         return (
             <div onClick={toggleDetails}>
-            <div className={priorityClass}>
+            <div className={"priority " + priorityClass}>
                 <h3>{props.title}</h3>
                 <label>Due in {deadline} days</label>
             </div>
