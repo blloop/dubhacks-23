@@ -16,6 +16,7 @@ const DailyTask = props => {
     
     let days_left = Math.floor((props.deadline - TODAY) / SECONDS_IN_DAY);
 
+    let readable_date = "2025-01-01";
     let deadline_txt = "Due in " + days_left + " days";
     if (days_left < 1) {
         deadline_txt =  "Due TODAY";
@@ -25,7 +26,10 @@ const DailyTask = props => {
         setDetailsOpen(!details_open);
     }
 
-    function finishTask() {
+    function saveTask() {
+        let task = {name: title, desc: desc, priority: priority, duration: estimate, deadline: deadline}
+        props.saveEdits(props.id, task);
+        console.log(task.id);
         setDetailsOpen(false);
     }
 
@@ -34,9 +38,7 @@ const DailyTask = props => {
     }
 
     function updateDeadline(evt) {
-        let days = (evt.target.valueAsNumber - TODAY) / SECONDS_IN_DAY;
-        setDeadline(days + 1.3);
-        console.log(days + 1.3);
+        setDeadline(evt.target.valueAsNumber / 1000);
     }
 
     if (details_open) {
@@ -49,13 +51,11 @@ const DailyTask = props => {
                         onChange={updateTitle}>{props.title}</textarea>
                     <br></br>
                     <label htmlFor="date">Due Date</label><br></br>
-                    <input type="date" id="date" value={deadline}
+                    <input type="date" id="date" value={readable_date}
                         onChange={updateDeadline}/>
                     <p>{props.desc}</p>
                 <div>
-                    <p><b>Did you finish this for today?</b></p>
-                    <button className="button-black" onClick={finishTask}>Yes</button>
-                    <button className="button-black" onClick={finishTask}>No</button>
+                    <button className="button-black" onClick={saveTask}>Save Changes</button>
                 </div>
             </div>
         );

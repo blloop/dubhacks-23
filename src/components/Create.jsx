@@ -29,7 +29,7 @@ const Create = props => {
     }
 
     function updateDeadline(evt) {
-        let days = (evt.target.valueAsNumber - TODAY) / SECONDS_IN_DAY;
+        setDeadline(evt.target.valueAsNumber / 1000);
     }
     
     function updateEstimate(evt) {

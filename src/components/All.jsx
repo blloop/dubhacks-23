@@ -32,7 +32,8 @@ const All = props => {
                 title={task.name}
                 desc={task.desc}
                 priority={task.priority}
-                deadline={task.deadline}/>
+                deadline={task.deadline}
+                saveEdits={props.editTask}/>
         )
     }
 
