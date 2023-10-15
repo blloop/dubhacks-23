@@ -18,6 +18,11 @@
 
 /* General styles */
 
+h1 {
+    font-size: 48px;
+    color: white;
+}
+
 label {
     color: gray;
     font-size: 12px;
@@ -93,8 +98,31 @@ button:hover {
     inset: 0;
     z-index: -2;
     height: 100%;
+    padding: var(--page-spacing);
     background-color: var(--off-black);
 }
+
+.page-intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.title-logo {
+    height: 120px;
+    margin: 0 48px;
+    object-fit: cover;
+}
+
+.intro-click {
+    position: absolute;
+    bottom: 10%;
+    color: white;
+}
+
+/* Feed Page */
 
 .feed-header {
     margin-bottom: var(--page-spacing);

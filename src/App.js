@@ -4,11 +4,13 @@ import Today from './components/Today';
 import All from './components/All';
 import Feed from './components/Feed';
 import SECRETS from './env';
+import Intro from './components/Intro';
+import Register from './components/Register';
 
 const App = () => {
   const [taskList, setTasks] = useState([]);
   const [feedList, setFeed] = useState([]);
-  const [pageIndex, setIndex] = useState(0);
+  const [pageIndex, setIndex] = useState(-2);
   const [userName, setUserName] = useState("");
 
   // get task data from Google Sheets
@@ -78,6 +80,18 @@ const App = () => {
   console.log(feedList)
 
   switch (pageIndex) {
+    case -2:
+      return (
+        <Intro
+          setIndex={setIndex}
+        />
+      );
+    case -1:
+      return (
+        <Register
+          setUserName={setUserName}
+        />
+      );
     case 0: 
       return (
         <Today
@@ -93,7 +107,8 @@ const App = () => {
         <All
           pageIndex={pageIndex}
           setIndex={setIndex}
-          addTask={addTask}  
+          addTask={addTask}
+          taskList={taskList}
           userName={userName}
         />
       );
