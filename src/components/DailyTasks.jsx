@@ -1,14 +1,12 @@
 import { useState } from 'react';
 
-const SECONDS_IN_DAY = 86400;
-
 const DailyTask = props => {
     const [details_open, setDetailsOpen] = useState(false);
 
     const date = Date.now();
     let priorityClass = "p" + props.priority;
-    let deadline = props.deadline; //Math.floor((props.deadline - date) / SECONDS_IN_DAY);
-
+    let deadline = Math.floor(props.deadline);
+    
     console.log(deadline)
     console.log(date)
 
