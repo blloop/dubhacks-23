@@ -18,11 +18,9 @@ const Today = props => {
 
     return (
         <>
-            <div className='page-today'>
-                <div className='dark-header'>
-                    <h1>Hello!</h1>
-                    <p>You have {num_tasks} tasks today :0</p>
-                </div>
+            <div className='dark-header'>
+                <h1>Hello!</h1>
+                <p>You have {num_tasks} tasks today :0</p>
             </div>
             
             <Create></Create>

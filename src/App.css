@@ -48,6 +48,7 @@ button:hover {
     border-radius: var(--round-border);
     background-color: var(--off-black);
     border: 2px solid var(--off-black);
+    margin: 0 var(--page-spacing);
 }
 
 .navbar button {
@@ -90,13 +91,27 @@ button:hover {
 .dark-bg {
     position: absolute;
     inset: 0;
+    z-index: -2;
     background-color: var(--off-black);
 }
 
-.page-today {
-
+.feed-task {
+    padding: 24px;
+    border-radius: var(--round-border);
+    margin-bottom: var(--page-spacing);
+    background-color: white;
 }
 
-.page-feed {
-    background-color: var(--off-black);
+.feed-text {
+    font-size: 24px;
+    margin: 0;
+}
+
+.feed-info {
+    display: flex;
+    color: #848484;
+}
+
+.feed-info p {
+    margin: 12px 0 0;
 }

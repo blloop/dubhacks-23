@@ -25,9 +25,9 @@ const App = () => {
               tempList.push({
                 name: taskData[i][0],
                 desc: taskData[i][1],
-                priority: taskData[i][2],
-                duration: taskData[i][3],
-                deadline: taskData[i][4]
+                priority: parseInt(taskData[i][2]),
+                duration: parseInt(taskData[i][3]),
+                deadline: parseInt(taskData[i][4])
               })
             }
             setTasks(tempList);
@@ -50,10 +50,9 @@ const App = () => {
             for (let i = 1; i < taskData.length; i++) {
               tempList.push({
                 name: taskData[i][0],
-                desc: taskData[i][1],
-                priority: taskData[i][2],
-                duration: taskData[i][3],
-                deadline: taskData[i][4]
+                user: taskData[i][1],
+                date: parseInt(taskData[i][2]),
+                liked: parseInt(taskData[i][3])
               })
             }
             setFeed(tempList);
@@ -74,6 +73,8 @@ const App = () => {
     tempList.push(task);
     setTasks(tempList);
   }
+
+  console.log(feedList)
 
   switch (pageIndex) {
     case 0: 
@@ -98,7 +99,8 @@ const App = () => {
         <Feed
           pageIndex={pageIndex}
           setIndex={setIndex}
-          addTask={addTask}  
+          addTask={addTask}
+          feedList={feedList}
         />
       );
   }
