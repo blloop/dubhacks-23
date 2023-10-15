@@ -75,6 +75,7 @@ button:hover {
     font-weight: bold;
     border-radius: var(--round-border);
     border: none;
+    cursor: pointer;
 }
 
 .navbar button:not(.selected):hover {
@@ -202,6 +203,7 @@ button:hover {
 }
 
 .feed-buttons button {
+    cursor: pointer;
     background-color: transparent;
     padding: 4px;
     margin-left: 12px;
@@ -244,7 +246,6 @@ button:hover {
 .add-task {
     width: 100%;
     background-color: var(--off-black);
-    border: 2px solid var(--off-black);
     color: white;
     cursor: pointer;
 }
@@ -293,6 +294,18 @@ button:hover {
 
 .window-create button:hover {
     background-color: lightgray;
+}
+
+.window-close {
+    position: absolute;
+    top: -16px;
+    right: 6px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.window-close:hover {
+    font-weight: bold;
 }
 
 .estimate-box {

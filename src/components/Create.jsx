@@ -54,6 +54,9 @@ const Create = props => {
 
     return (
         <div className="window-create">
+            <p 
+                className='window-close'
+                onClick={props.toggleCreate}>X</p>
             <label htmlFor="title">Task Name:</label>
             <textarea type="text" id="title" className="non-resizable"
                 onChange={updateTitle}/>
