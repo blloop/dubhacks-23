@@ -1,6 +1,5 @@
-# TaskFeed
-
-### Track and share tasks with other people to celebrate them!
-
-You can view a live demo at: https://blloop.com/taskfeed
-* (Use the username 'Demo' to see example tasks)
+| Hello User! |
+| --- |
+| You have 0 tasks today :) |
+| --- |
+| Add A Task |
