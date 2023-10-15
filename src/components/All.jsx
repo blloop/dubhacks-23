@@ -12,6 +12,10 @@ const All = props => {
     if (creating) {
         return (
             <>
+                <div className='dark-header'>
+                    <h1>Hello {props.userName}!</h1>
+                    <p>You have {props.taskList.length} tasks today {":)"}</p>
+                </div>
                 <div className='page-all'>
                         <button className="add-task"
                             onClick={toggleCreate}>ADD TASK</button>
@@ -32,6 +36,10 @@ const All = props => {
     } else {
         return (
             <>
+                <div className='dark-header'>
+                    <h1>Hello {props.userName}!</h1>
+                    <p>You have {props.taskList.length} tasks today {":)"}</p>
+                </div>
                 <div className='page-all'>
                     <button className="add-task"
                         onClick={toggleCreate}>ADD TASK</button>

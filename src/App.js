@@ -10,7 +10,7 @@ import Register from './components/Register';
 const App = () => {
   const [taskList, setTasks] = useState([]);
   const [feedList, setFeed] = useState([]);
-  const [pageIndex, setIndex] = useState(1);
+  const [pageIndex, setIndex] = useState(-2);
   const [userName, setUserName] = useState("");
 
   // get task data from Google Sheets

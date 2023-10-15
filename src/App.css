@@ -22,6 +22,7 @@
 h1 {
     font-size: 48px;
     color: white;
+    margin: 0;
 }
 
 label {
@@ -92,7 +93,8 @@ button:hover {
 
 .dark-header {
     background-color: var(--off-black);
-    padding: 12px;
+    padding: 24px;
+    margin-bottom: var(--page-spacing);
     font-weight: bold;
     border-radius: 18px;
     border: none;
@@ -211,12 +213,13 @@ button:hover {
 .add-task {
     width: 100%;
     background-color: var(--off-black);
+    border: 2px solid var(--off-black);
     color: white;
     cursor: pointer;
 }
 
 .add-task:hover {
-    background-color: lightgray;
+    background-color: gray;
 }
 
 .page-all {
@@ -250,7 +253,6 @@ button:hover {
 
 .window-create button {
     background-color: transparent;
-    border-radius: 24px;
     width: 60%;
     margin: 0 auto;
     padding: 4px 12px;
