@@ -6,5 +6,5 @@
 | Write a research paper on the causes of World War I. |
 | TIME ESTIMATE: 90 minutes |
 | |
-| <a href="link-1.md">DELETE</a>
+| <a href="link-0.md">DELETE</a>
 | <a href="link-2.md">CANCEL</a> |
