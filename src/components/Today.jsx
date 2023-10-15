@@ -1,12 +1,13 @@
 import Navbar from "./Navbar";
 
 const Today = props => {
+    
     return (
         <>
             <div className='page-today'>
                 <h1> Today </h1>
             </div>
-            <Navbar
+            <Navbar 
                 idx={props.pageIndex}
                 setIndex={props.setIndex}
             />
