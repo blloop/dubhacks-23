@@ -1,5 +1,6 @@
 import DailyTasks from './DailyTasks';
 import Navbar from './Navbar';
+import DemoNotif from './DemoNotif';
 
 const Today = props => {
     let localTaskList = [...props.taskList];
@@ -30,6 +31,7 @@ const Today = props => {
 
     return (
         <>
+            <DemoNotif></DemoNotif>
             <div className='dark-header'>
                 <h1>Hello {props.userName}!</h1>
                 <p>You have {localTaskList.length} tasks today {":)"}</p>
