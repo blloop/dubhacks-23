@@ -72,9 +72,9 @@ const Create = props => {
                 onChange={updateDesc}/>
             <label htmlFor="estimate">Time Estimate</label>
             <div className='estimate-box non-resizable'>
-                <textarea 
+                <input
+                    type="number"
                     id="estimate" 
-                    rows="1" columns="3"
                     onChange={updateEstimate}/>
                 <label>minutes</label>
             </div>

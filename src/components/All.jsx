@@ -30,6 +30,7 @@ const All = props => {
         let task = localTaskList[i];
         list.push(
             <EditTasks
+                key={i}
                 title={task.name}
                 desc={task.desc}
                 priority={task.priority}
@@ -47,11 +48,9 @@ const All = props => {
                     <h1>Hello {props.userName}!</h1>
                     <p>You have {props.taskList.length} tasks today {":)"}</p>
                 </div>
-                <div className='page-all'>
-                        <button className="add-task"
-                            onClick={toggleCreate}>ADD TASK</button>
-                        <div className='disable-div'>
-                        </div>
+                <button className="add-task"
+                    onClick={toggleCreate}>ADD TASK</button>
+                <div className='disable-div'>
                 </div>
                 <div 
                     className='disable-div'
@@ -76,10 +75,8 @@ const All = props => {
                     <h1>Hello {props.userName}!</h1>
                     <p>You have {props.taskList.length} tasks today {":)"}</p>
                 </div>
-                <div className='page-all'>
-                    <button className="add-task"
-                        onClick={toggleCreate}>ADD TASK</button>
-                </div>
+                <button className="add-task"
+                    onClick={toggleCreate}>ADD TASK</button>
                 {list}
                 <Navbar
                     idx={props.pageIndex}

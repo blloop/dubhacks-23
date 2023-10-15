@@ -10,6 +10,7 @@ const Feed = props => {
         let task = props.feedList[i];
         list.push(
             <FeedTask
+                key={i}
                 name={task.name}
                 user={task.user}
                 date={task.date}
@@ -28,8 +29,6 @@ const Feed = props => {
                     alt='Profile Button'/>
             </div>
             {list}
-            <br></br><br></br>
-            <br></br><br></br>
         
             <Navbar
                 idx={props.pageIndex}

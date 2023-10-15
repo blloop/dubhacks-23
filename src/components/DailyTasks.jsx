@@ -24,7 +24,7 @@ const DailyTask = props => {
 
     if (details_open) {
         return (
-            <div className={"clicked-priority " + priorityClass}>
+            <div className={"clicked" + priorityClass}>
                 <div onClick={toggleDetails}>
                     <h3>{props.title}</h3>
                     <label>{deadline_txt}</label>
