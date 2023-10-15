@@ -3,6 +3,7 @@
     --off-white: #c2c2c2;
     --off-white2: rgb(241, 241, 241);
     --round-border: 22px;
+    --round-small: 6px;
     --page-spacing: 18px;
 }
 
@@ -22,11 +23,17 @@
 h1 {
     font-size: 48px;
     color: white;
+    margin: 0;
 }
 
 label {
     color: gray;
-    font-size: 12px;
+}
+
+input, textarea:not(#estimate) {
+    border: 1px solid black;
+    border-radius: var(--round-small);
+    margin: 6px 0 12px;
 }
 
 button {
@@ -87,7 +94,8 @@ button:hover {
 
 .dark-header {
     background-color: var(--off-black);
-    padding: 12px;
+    padding: 24px;
+    margin-bottom: var(--page-spacing);
     font-weight: bold;
     border-radius: 18px;
     border: none;
@@ -209,8 +217,18 @@ button:hover {
     border-color: yellow;
 }
 
-.p3:hover {
-    background-color: var(--off-white2);
+/* Add Page */
+
+.add-task {
+    width: 100%;
+    background-color: var(--off-black);
+    border: 2px solid var(--off-black);
+    color: white;
+    cursor: pointer;
+}
+
+.add-task:hover {
+    background-color: gray;
 }
 
 .page-all {
@@ -228,10 +246,46 @@ button:hover {
 }
 
 .window-create {
-    background-color: white;
+    display: flex;
+    flex-direction: column;
     position: absolute;
+    padding: 12px;
     z-index: 100;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border-radius: var(--round-border);
+    border: 3px solid black;
+    background-color: white;
+    font-size: 16px;
+}
+
+.window-create button {
+    background-color: transparent;
+    width: 60%;
+    margin: 0 auto;
+    padding: 4px 12px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.window-create button:hover {
+    background-color: lightgray;
+}
+
+.estimate-box {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.estimate-box textarea {
+    border: 1px solid black;
+    border-radius: var(--round-small);
+    margin-top: 6px;
+}
+
+#date {
+    padding: 8px;
 }

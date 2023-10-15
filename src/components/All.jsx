@@ -12,16 +12,21 @@ const All = props => {
     if (creating) {
         return (
             <>
+                <div className='dark-header'>
+                    <h1>Hello {props.userName}!</h1>
+                    <p>You have {props.taskList.length} tasks today {":)"}</p>
+                </div>
                 <div className='page-all'>
-                        <button className="addButton"
+                        <button className="add-task"
                             onClick={toggleCreate}>ADD TASK</button>
                         <div className='disable-div'>
                         </div>
                 </div>
                 <div className='disable-div'></div>
                 <Create 
-                    addTask={props.addTask}></Create>
-
+                    toggleCreate={toggleCreate}
+                    addTask={props.addTask}
+                />
                 <Navbar
                     idx={props.pageIndex}
                     setIndex={props.setIndex}
@@ -31,11 +36,14 @@ const All = props => {
     } else {
         return (
             <>
+                <div className='dark-header'>
+                    <h1>Hello {props.userName}!</h1>
+                    <p>You have {props.taskList.length} tasks today {":)"}</p>
+                </div>
                 <div className='page-all'>
-                    <button className="addButton"
+                    <button className="add-task"
                         onClick={toggleCreate}>ADD TASK</button>
                 </div>
-
                 <Navbar
                     idx={props.pageIndex}
                     setIndex={props.setIndex}

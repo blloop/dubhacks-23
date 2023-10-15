@@ -89,7 +89,7 @@ const App = () => {
     case -1:
       return (
         <Register
-        setIndex={setIndex}
+          setIndex={setIndex}
           setUserName={setUserName}
         />
       );

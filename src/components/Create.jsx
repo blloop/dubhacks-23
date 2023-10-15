@@ -47,34 +47,36 @@ const Create = props => {
         let task = {name: title, desc: desc, priority: priority, duration: estimate, deadline: deadline}
         props.addTask(task);
         console.log(task);
-        props.closeWindow();
+        props.toggleCreate();
     }
 
     return (
         <div className="window-create">
-            <label htmlFor="title">Task Name:</label><br></br>
-            <input type="text" id="title"
-                onChange={updateTitle}></input>
-            <br></br>
-
-            <label htmlFor="desc">Description:</label><br></br>
+            <label htmlFor="title">Task Name:</label>
+            <textarea type="text" id="title"
+                onChange={updateTitle}/>
+            <label htmlFor="date">Due Date</label>
+            <input type="date" id="date"/>
+            <label htmlFor="desc">Description:</label>
             <textarea id="desc"
-                onChange={updateDesc}></textarea>
-            <br></br>
+                onChange={updateDesc}/>
+            <label htmlFor="estimate">Time Estimate</label>
+            <div className='estimate-box'>
+                <textarea id="estimate" rows="2"
+                    onChange={updateEstimate}/>
+                <label>minutes</label>
+            </div>
 
-            <p>Select Priority:</p>
-                <input type="radio" id="priority_a" name="priority" value={1}
-                onChange={updatePriority}></input>
-                <label htmlFor="html">A (Top priority)</label>
-            <br></br>
-                <input type="radio" id="priority_b" name="priority" value={2}
-                onChange={updatePriority}></input>
-                <label htmlFor="html">B (Medium priority)</label>
-            <br></br>
-                <input type="radio" id="priority_c" name="priority" value={3}
-                onChange={updatePriority}></input>
-                <label htmlFor="html">C (Low priority)</label>
-            <br></br>            
+            {/* <p>Select Priority:</p>
+            <input type="radio" id="priority_a" name="priority" value={1}
+            onChange={updatePriority}></input>
+            <label htmlFor="html">A (Top priority)</label>
+            <input type="radio" id="priority_b" name="priority" value={2}
+            onChange={updatePriority}></input>
+            <label htmlFor="html">B (Medium priority)</label>
+            <input type="radio" id="priority_c" name="priority" value={3}
+            onChange={updatePriority}></input>
+            <label htmlFor="html">C (Low priority)</label> */}
 
             <button onClick={createTask}>Done</button>
         </div>
