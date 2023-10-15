@@ -1,9 +1,9 @@
 :root {
     --off-black: #292929;
     --off-gray: #949494;
-    --off-white: #afafaf;
+    --off-white: #dddddd;
     --round-border: 22px;
-    --round-small: 6px;
+    --round-small: 12px;
     --page-spacing: 18px;
     --set-width: 480px;
 }
@@ -42,22 +42,23 @@ label {
     color: gray;
 }
 
-input, textarea:not(#estimate) {
-    border: 1px solid black;
-    border-radius: var(--round-small);
+input:not(#estimate), textarea {
+    border: 1px solid white;
+    border-radius: var(--round-border);
     margin: 6px 0 12px;
 }
 
 button {
-    padding: 12px;
-    font-size: 15px;
+    padding: 6px 12px;
+    font-size: 24px;
     font-weight: bold;
     border-radius: 18px;
-    border: none;    
+    border: none;
+    transition: 0.1s all ease-in-out;
 }
 
 button:not(.selected):hover {
-    background-color: var(--off-gray);
+    background-color: var(--off-gray) !important;
 }
 
 /* Class styles */
@@ -115,6 +116,10 @@ button:not(.selected):hover {
     color: white
 }
 
+.dark-header p {
+    font-size: 18px;
+}
+
 .dark-bg {
     position: fixed;
     inset: 0;
@@ -124,7 +129,7 @@ button:not(.selected):hover {
     left: 50%;
     transform: translate(-50%, 0);
     overflow-y: auto;
-    width: var(--set-width);
+    width: 480px;
     max-width: 100vw;
 }
 
@@ -163,9 +168,15 @@ button:not(.selected):hover {
     margin-bottom: 48px;
 }
 
+.signup {
+    width: 90%;
+    margin: 0 auto;
+    padding: 6px 12px;
+}
+
 .title-logo {
     height: 120px;
-    margin: 0 48px;
+    margin: 24px 48px;
     object-fit: cover;
 }
 
@@ -219,6 +230,10 @@ button:not(.selected):hover {
     margin-left: 12px;
 }
 
+.feed-buttons button:hover {
+    background-color: transparent !important;
+}
+
 .feed-buttons button img {
     height: 24px;
     object-fit: cover;
@@ -236,19 +251,25 @@ button:not(.selected):hover {
 }
 
 .p2 {
-    border-color: orange;
+    border-color: rgb(249, 177, 44);
+    /* border-color: rgb(255, 131, 131); */
 }
 
 .p3 {
-    border-color: yellow;
+    border-color: #FFDF00;
+    /* border-color: rgb(255, 194, 194); */
 }
 
-.priority:hover {
-    background-color: var(--off-gray);
+.priority {
+    cursor: pointer;
 }
 
-.clicked-priority {
-    background-color: var(--off-gray);
+.priority:not(.clicked):hover {
+    background-color: var(--off-white);
+}
+
+.clicked {
+    background-color: var(--off-white);
 }
 
 /* Add Page */
@@ -258,10 +279,6 @@ button:not(.selected):hover {
     background-color: var(--off-black);
     color: white;
     cursor: pointer;
-}
-
-.page-all {
-    z-index: 0;
     margin-bottom: var(--page-spacing);
 }
 
@@ -288,10 +305,7 @@ button:not(.selected):hover {
     border-radius: var(--round-border);
     border: 3px solid black;
     background-color: white;
-    font-size: 16px;
-}
-
-.window-edit {
+    font-size: 24px;
 }
 
 .window-create button {
@@ -309,7 +323,7 @@ button:not(.selected):hover {
 
 .window-close {
     position: absolute;
-    top: -16px;
+    top: -24px;
     right: 6px;
     padding: 8px;
     cursor: pointer;
@@ -326,13 +340,14 @@ button:not(.selected):hover {
     margin-bottom: 12px;
 }
 
-.estimate-box textarea {
+.estimate-box input {
     border: 1px solid black;
     border-radius: var(--round-small);
     margin-top: 6px;
     font-size: 36px;
     width: 80px;
     resize: none;
+    overflow: hidden;
 }
 
 .non-resizable {

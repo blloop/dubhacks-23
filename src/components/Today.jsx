@@ -21,6 +21,7 @@ const Today = props => {
         let task = localTaskList[i];
         list.push(
             <DailyTasks
+                key={i}
                 title={task.name}
                 desc={task.desc}
                 priority={task.priority}

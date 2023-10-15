@@ -53,7 +53,7 @@ const EditTask = props => {
 
     if (details_open) {
         return (
-            <div className={"clicked-priority " + priorityClass}>
+            <div className={"clicked " + priorityClass}>
                 <h3 onClick={toggleDetails}>Editing...</h3>
                     <label htmlFor="title">Task Name:</label>
                     <br></br>
