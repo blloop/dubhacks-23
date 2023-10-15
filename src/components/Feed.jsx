@@ -26,6 +26,8 @@ const Feed = props => {
                     alt='Profile Button'/>
             </div>
             {list}
+            <br></br><br></br>
+            <br></br><br></br>
         
             <Navbar
                 idx={props.pageIndex}
