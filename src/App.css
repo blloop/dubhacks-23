@@ -1,6 +1,7 @@
 :root {
     --off-black: #292929;
     --off-white: #c2c2c2;
+    --off-white2: rgb(241, 241, 241);
     --round-border: 22px;
     --page-spacing: 18px;
 }
@@ -186,6 +187,10 @@ button:hover {
     border-color: red;
 }
 
+.p1:hover {
+    background-color: var(--off-white2);
+}
+
 .p2 {
     border-radius: var(--round-border);
     padding: 10px;
@@ -193,11 +198,19 @@ button:hover {
     border-color: orange;
 }
 
+.p2:hover {
+    background-color: var(--off-white2);
+}
+
 .p3 {
     border-radius: var(--round-border);
     padding: 10px;
     border-style: solid;
     border-color: yellow;
+}
+
+.p3:hover {
+    background-color: var(--off-white2);
 }
 
 .page-all {
