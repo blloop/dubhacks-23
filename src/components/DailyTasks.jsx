@@ -2,7 +2,7 @@ const details_open = false
 
 const DailyTask = props => {
     return (
-        <div class="dailytask">
+        <div className="dailytask">
             <h3>{props.title}</h3>
             <p>{props.desc}</p>
             <div>

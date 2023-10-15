@@ -4,6 +4,7 @@ import { useState } from 'react';
 const title = ""
 
 /*
+TASK structure
 deadline:num
 desc:text
 duration:num
@@ -12,8 +13,17 @@ priority:num
  */
 
 const Create = props => {
+    const [isLongTerm, setLongTerm] = useState(false);
+
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
+    const [priority, setPriority] = useState(-1);
+    const [deadline, setDeadline] = useState(-1);
+    const [estimate, setEstimate] = useState(-1);
+
+    function toggleType() {
+        setLongTerm(!isLongTerm);
+    }
 
     function updateTitle(evt) {
         setTitle(evt.target.value);
@@ -21,18 +31,46 @@ const Create = props => {
 
     function updateDesc(evt) {
         setDesc(evt.target.value);
-        console.log(evt)
     }
 
-    return (
+    function updateDeadline(evt) {
+        setDeadline(evt.target.valueAsNumber);
+        console.log(evt.target.valueAsNumber)
+    }
+    
+    function updateEstimate(evt) {
+        setEstimate(evt.target.value);
+    }
+
+    function updatePriority(evt) {
+        if (evt.target.checked) {
+            setPriority(evt.target.value);
+            console.log(evt.target.value)
+        }
+    }
+
+    function createTask() {
+        /*
+            tempList.push({
+            name: taskData[i][0],
+            desc: taskData[i][1],
+            priority: taskData[i][2],
+            duration: taskData[i][3],
+            deadline: taskData[i][4]
+        */
+    }
+
+    if (isLongTerm === false) {
+        return (
         <div>
-            <label htmlFor="title">Task Name:</label><br></br>
-            <input type="text" id="title" value={title}
-                onChange={updateTitle}></input>
+            <h2>One Time Task</h2>
+            <button id="task_type"
+                onClick={toggleType}>Change to long term goal</button>
             <br></br>
 
-            <label htmlFor="deadline">Due Date:</label><br></br>
-            <input type="date" id="deadline"></input>
+            <label htmlFor="title">Task Name:</label><br></br>
+            <input type="text" id="title"
+                onChange={updateTitle}></input>
             <br></br>
 
             <label htmlFor="desc">Description:</label><br></br>
@@ -40,14 +78,54 @@ const Create = props => {
                 onChange={updateDesc}></textarea>
             <br></br>
 
-            <label htmlFor="estimate">Time Estimate (Minutes):</label><br></br>
-            <input type="number" id="estimate"></input>
+            <p>Select Priority:</p>
+            <input type="radio" id="priority_a" name="priority" value={1}
+                onChange={updatePriority}></input>
+            <label for="html">A (Top priority)</label>
             <br></br>
+            <input type="radio" id="priority_b" name="priority" value={2}
+                onChange={updatePriority}></input>
+            <label for="html">B (Medium priority)</label>
             <br></br>
+            <input type="radio" id="priority_c" name="priority" value={3}
+                onChange={updatePriority}></input>
+            <label for="html">C (Low priority)</label>
+            <br></br>            
 
             <button>Done</button>
         </div>
-    )
+         )
+    } else {
+        return (
+        <div>
+            <h2>Long Term Goal</h2>
+            <button id="task_type"
+                onClick={toggleType}>Change to short term task</button>
+            <br></br>
+            <label htmlFor="title">Task Name:</label><br></br>
+            <input type="text" id="title"
+                onChange={updateTitle}></input>
+            <br></br>
+
+            <label htmlFor="desc">Description:</label><br></br>
+            <textarea id="desc"
+                onChange={updateDesc}></textarea>
+            <br></br>
+
+            <label htmlFor="deadline">Due Date:</label><br></br>
+            <input type="date" id="deadline"
+                onChange={updateDeadline}></input>
+            <br></br>
+
+            <label htmlFor="estimate">Time Estimate (Hours):</label><br></br>
+            <input type="number" id="estimate" onChange={updateEstimate}></input>
+            <br></br>
+            <br></br>
+
+            <button onClick={createTask}>Done</button>
+        </div>
+        )
+    }  
 }
 
 export default Create;
