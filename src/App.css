@@ -1,8 +1,8 @@
 :root {
     --off-black: #292929;
     --off-white: #c2c2c2;
-    --round-border: 18px;
-    --page-spacing: 12px;
+    --round-border: 22px;
+    --page-spacing: 18px;
 }
 
 * {
@@ -48,7 +48,7 @@ button:hover {
     border-radius: var(--round-border);
     background-color: var(--off-black);
     border: 2px solid var(--off-black);
-    margin: 0 var(--page-spacing);
+    margin: 0 12px;
 }
 
 .navbar button {
@@ -89,14 +89,26 @@ button:hover {
 }
 
 .dark-bg {
-    position: absolute;
+    position: fixed;
     inset: 0;
     z-index: -2;
+    height: 100%;
     background-color: var(--off-black);
 }
 
+.feed-header {
+    margin-bottom: var(--page-spacing);
+    display: flex;
+    justify-content: space-between;
+}
+
+.feed-header * {
+    cursor: pointer;
+    height: 40px;
+}
+
 .feed-task {
-    padding: 24px;
+    padding: var(--page-spacing);
     border-radius: var(--round-border);
     margin-bottom: var(--page-spacing);
     background-color: white;
@@ -109,9 +121,23 @@ button:hover {
 
 .feed-info {
     display: flex;
+    justify-content: space-between;
     color: #848484;
+    margin-top: 12px;
 }
 
 .feed-info p {
-    margin: 12px 0 0;
+    margin: 8px 0 0;
+    text-align: end;
+}
+
+.feed-buttons button {
+    background-color: transparent;
+    padding: 4px;
+    margin-left: 12px;
+}
+
+.feed-buttons button img {
+    height: 24px;
+    object-fit: cover;
 }
