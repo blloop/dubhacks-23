@@ -18,7 +18,7 @@ const Today = props => {
 
     return (
         <>
-            <div class="today-header">
+            <div className="today-header">
                 <h1>Hello!</h1>
                 <p>You have {num_tasks} tasks today :0</p>
             </div>
