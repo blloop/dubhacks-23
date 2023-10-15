@@ -285,6 +285,8 @@ button:hover {
 }
 
 .window-edit {
+    display: flex;
+    flex-direction: column;
 }
 
 .window-create button {
