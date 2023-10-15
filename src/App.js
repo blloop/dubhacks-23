@@ -11,7 +11,7 @@ const App = () => {
   const [taskList, setTasks] = useState([]);
   const [feedList, setFeed] = useState([]);
   const [pageIndex, setIndex] = useState(-2);
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState("johndoedoe");
 
   // get task data from Google Sheets
   const fetchTasks = () => {

@@ -17,22 +17,18 @@ const Register = props => {
             <h1>Let's Get Stuff Done.</h1>
             <h3>Sign up to get started</h3>
 
-            <span>Username</span><br></br>
+            <span>Username</span>
             <input type="text" onChange={updateUsername}></input>
-            <br></br>
-            <br></br>
 
-            <span>Password</span><br></br>
+            <span>Password</span>
             <input type="password"></input>
-            <br></br>
-            <br></br>
 
-            <b>Must contain:</b><br></br>
-            <span>- 9 characters<br></br>
+            <b>Must contain:</b>
+            <span className='passtext'>
+            - 9 characters<br></br>
             - 1 number<br></br>
-            - 1 capital letter</span>
-            <br></br>
-            <br></br>
+            - 1 capital letter
+            </span>
 
             <button onClick={openApp}>Sign Up</button>
         </div>

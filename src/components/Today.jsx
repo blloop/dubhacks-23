@@ -4,7 +4,6 @@ import Navbar from './Navbar';
 const Today = props => {
     let localTaskList = [...props.taskList];
 
-
     function comparePriority(a, b) {
         if (a.priority < b.priority) {
             return -1;
@@ -35,7 +34,6 @@ const Today = props => {
                 <h1>Hello {props.userName}!</h1>
                 <p>You have {localTaskList.length} tasks today {":)"}</p>
             </div>
-            <br></br>
             {list}
 
             <Navbar
