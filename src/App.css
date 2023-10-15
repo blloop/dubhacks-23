@@ -115,3 +115,24 @@ button:hover {
 .feed-info p {
     margin: 12px 0 0;
 }
+
+.p1 {
+    border-radius: var(--round-border);
+    padding: 10px;
+    border-style: solid;
+    border-color: red;
+}
+
+.p2 {
+    border-radius: var(--round-border);
+    padding: 10px;
+    border-style: solid;
+    border-color: orange;
+}
+
+.p3 {
+    border-radius: var(--round-border);
+    padding: 10px;
+    border-style: solid;
+    border-color: yellow;
+}

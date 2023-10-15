@@ -1,17 +1,27 @@
 const details_open = false
 
 const DailyTask = props => {
-    return (
-        <div className="dailytask">
-            <h3>{props.title}</h3>
-            <p>{props.desc}</p>
-            <div>
-                <p>Did you make progress?</p>
-                <button>Yes</button>
-                <button>No</button>
+    let priorityClass = "p" + props.priority;
+
+    if (details_open) {
+        return (
+            <div className={priorityClass}>
+                <h3>{props.title}</h3>
+                <span>{props.desc}</span>
+                <div>
+                    <p>Did you make progress?</p>
+                    <button>Yes</button>
+                    <button>No</button>
+                </div>
             </div>
-        </div>
-    )
+        )
+    } else {
+        return (
+            <div className={priorityClass}>
+                <h3>{props.title}</h3>
+            </div>
+        )
+    }
 }
 
 export default DailyTask;
