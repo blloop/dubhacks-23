@@ -43,7 +43,6 @@ const Today = props => {
                 idx={props.pageIndex}
                 setIndex={props.setIndex}
             />
-            <br></br><br></br><br></br>
         </>
 
     )
