@@ -6,14 +6,13 @@ const SECONDS_IN_DAY = 86400;
 const DailyTask = props => {
     const [details_open, setDetailsOpen] = useState(false);
 
-    const date = Date.now();
     let priorityClass = "p" + props.priority;
-    let deadline = Math.floor(props.deadline / SECONDS_IN_DAY);
-    console.log(props.deadline);
-    console.log(SECONDS_IN_DAY);
-    
-    console.log(deadline)
-    console.log(date)
+    let deadline = Math.floor((props.deadline - TODAY) / SECONDS_IN_DAY);
+
+    let deadline_txt = "Due in " + deadline + " days";
+    if (deadline < 1) {
+        deadline_txt =  "Due TODAY";
+    }
 
     function toggleDetails() {
         setDetailsOpen(!details_open);
@@ -28,7 +27,7 @@ const DailyTask = props => {
             <div className={"clicked-priority " + priorityClass}>
                 <div onClick={toggleDetails}>
                     <h3>{props.title}</h3>
-                    <label>Due in {deadline} days</label>
+                    <label>{deadline_txt}</label>
                     <p>{props.desc}</p>
                 </div>
                 <div>
@@ -42,7 +41,7 @@ const DailyTask = props => {
         return (
             <div onClick={toggleDetails} className={"priority " + priorityClass}>
                 <h3>{props.title}</h3>
-                <label>Due in {deadline} days</label>
+                <label>{deadline_txt}</label>
             </div>
         );
     }
